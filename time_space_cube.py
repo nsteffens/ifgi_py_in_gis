@@ -45,6 +45,10 @@ def loadGPX(link_to_gpx):
     ax.set_xlabel('Latitude')
     ax.set_ylabel('Longitude')
 
+    # Add legend
+    fig.colorbar(plot, label='Time passed', shrink=0.5)
+
+
     plt.savefig('time_space_cube.png')
     plt.show()
 
