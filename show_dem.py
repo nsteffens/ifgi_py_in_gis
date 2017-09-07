@@ -21,7 +21,7 @@ def showDEM(link_to_tif):
     # This is very, very memory intensive and my machine is not able to complete it without overflowing
     # my memory of 16 GB (!). Runtime of the algorithm should be somewhere around O(n^2)
 
-    # This would create the possibility to display the carpet within its correct spatial boundary..
+    # This would create the possibility to display the carpet within its exact spatial boundary..
     '''
     xoffset, a, b, yoffset, d, e = dem.GetGeoTransform()
 
@@ -33,13 +33,13 @@ def showDEM(link_to_tif):
     x = []
     y = []
 
-    print pixel2coord(0,0)
     for row in range(0,height):
         for col in range(0,width):
             coords = pixel2coord(col,row)
             x.append(coords[0])
             y.append(coords[1])
     '''
+
     # Fill with zeroes since only elevation data is relevant
     x = range(0, height)
     y = range(0, width)
@@ -73,7 +73,7 @@ def showDEM(link_to_tif):
 
     xoffset, a, b, yoffset, d, e = dem.GetGeoTransform()
 
-    # Function to manually calulate the lat/lng of a pixel
+    # Function to manually calculate the lat/lng of a pixel
     def pixel2coord(x,y):
         xp = a* x + b * y + xoffset
         yp = d * x + e * y + yoffset
@@ -99,6 +99,4 @@ def showDEM(link_to_tif):
 
     plt.show()
 
-
 showDEM('/Users/nico/Desktop/dgm1_5meter_subset.img')
-#showDEM('/Users/nico/Desktop/ArcGIS-Data/clipped_dem.tif')

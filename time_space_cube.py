@@ -48,7 +48,6 @@ def loadGPX(link_to_gpx):
     # Add legend
     fig.colorbar(plot, label='Time passed', shrink=0.5)
 
-
     plt.savefig('time_space_cube.png')
     plt.show()
 
